@@ -38,7 +38,7 @@ def crear_libro(request):
             return redirect('inicio')
             
     else:
-        form = LibroForm()  
+        form = LibroForm()
         return render(request, 'libreria/crear_libro.html', {'form': form})
     
 def crear_genero(request):
