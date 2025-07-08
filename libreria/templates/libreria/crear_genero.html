@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+
+{% block title %}Crear Genero{% endblock %}
+
+{%block content%}
+
+    <h2>Crear Genero</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Genero</button>
+    </form>
+
+{%endblock%}

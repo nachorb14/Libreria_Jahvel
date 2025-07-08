@@ -1,0 +1,15 @@
+{% extends "padre.html" %}
+
+{% block title %}Crear Autor{% endblock %}
+
+{%block content%}
+
+    <h2>Crear Autor</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Autor</button>
+    </form>
+
+{%endblock%}
+
