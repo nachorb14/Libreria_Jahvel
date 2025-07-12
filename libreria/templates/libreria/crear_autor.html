@@ -10,13 +10,13 @@
 {% endblock %}
 
 {% block content %}
-
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <h2>Crear Autor</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Autor</button>
-    </form>
-
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar Autor</button>
+        </form>
+</div>
 {% endblock %}
 

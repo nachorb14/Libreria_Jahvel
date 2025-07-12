@@ -10,12 +10,12 @@
 {% endblock %}
 
 {%block content%}
-
-    <h2>Crear Genero</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h2>Crear Género</h2>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Guardar Genero</button>
     </form>
-
+</div>
 {%endblock%}
