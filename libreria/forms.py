@@ -1,5 +1,5 @@
 from django import forms
-from .models import Autor
+from .models import Autor, Genero
 
 class AutorForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -17,7 +17,9 @@ class LibroForm(forms.Form):
     fecha_publicacion = forms.DateField(
         label='Fecha de Publicación', widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'})
     )
-    genero = forms.CharField(label='Género', max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    genero = forms.ModelChoiceField(
+        label='Género', queryset=Genero.objects.all(), widget=forms.Select(attrs={'class': 'form-control'})
+    )
     
 class GeneroForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))

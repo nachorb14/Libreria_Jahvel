@@ -35,7 +35,7 @@ def crear_libro(request):
                 genero=form.cleaned_data['genero']
             )
             libro.save()
-            return redirect('inicio')
+            return redirect('libros')
             
     else:
         form = LibroForm()
@@ -52,3 +52,13 @@ def crear_genero(request):
     else:
         form = GeneroForm()
         return render(request, 'libreria/crear_genero.html', {'form': form})
+    
+def libros(request):
+    libros = Libro.objects.all()
+    return render(request, 'libreria/libros.html', {'libros': libros})
+    
+def buscar_libros(request):
+    if request.method == 'GET':
+        titulo = request.GET.get('titulo', '')
+        libros = Libro.objects.filter(titulo__icontains=titulo)
+        return render(request, 'libreria/libros.html', {'libros': libros, 'titulo': titulo})
