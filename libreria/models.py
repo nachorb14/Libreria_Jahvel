@@ -25,3 +25,12 @@ class Genero(models.Model):
     def __str__(self):
         return self.nombre
     
+
+class Biblia(models.Model):
+    nombre = models.CharField(max_length=100, default="Sin nombre")
+    version = models.CharField(max_length=50, default="Sin version")
+    tapa = models.CharField(max_length=50, default="desconocida")
+    editorial = models.CharField(max_length=100, default="Sin editorial")
+    
+    def __str__(self):
+        return f"{self.nombre} {self.tapa} {self.version} - {self.editorial}"

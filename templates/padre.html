@@ -20,6 +20,7 @@
     </head>
     <body>
         <!-- Navigation-->
+        {% block header-navigation %}
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a>
@@ -33,7 +34,7 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'inicio' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'libros' %}">Libros</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'crear_libro' %}">Crear Libros</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'crear-libro' %}">Crear Libros</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -52,6 +53,7 @@
                 </div>
             </div>
         </header>
+        {% endblock %}
         <!-- Main Content-->
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -93,7 +95,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2025</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Libreria Jahvel 2025</div>
                     </div>
                 </div>
             </div>

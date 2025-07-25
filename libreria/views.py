@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Autor, Libro, Genero
-from .forms import AutorForm, LibroForm, GeneroForm
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from .models import Autor, Libro, Genero, Biblia
+from .forms import AutorForm, LibroForm, GeneroForm, BibliaForm
 
 
 # Create your views here.
@@ -62,3 +64,32 @@ def buscar_libros(request):
         titulo = request.GET.get('titulo', '')
         libros = Libro.objects.filter(titulo__icontains=titulo)
         return render(request, 'libreria/libros.html', {'libros': libros, 'titulo': titulo})
+    
+    
+#Vistas basadas en clases
+class BibliaListView(ListView):
+    model = Biblia
+    template_name = 'libreria/listar_biblias.html'
+    context_object_name = 'biblias'
+
+class BibliaCreateView(CreateView):
+    model = Biblia
+    form_class = BibliaForm
+    template_name = 'libreria/crear_biblia.html'
+    success_url = reverse_lazy('listar-biblias')
+    
+class BibliaDetailView(DetailView):
+    model = Biblia
+    template_name = 'libreria/detalle_biblia.html'
+    context_object_name = 'biblia'
+    
+class BibliaUpdateView(UpdateView):
+    model = Biblia
+    form_class = BibliaForm
+    template_name = 'libreria/crear_biblia.html'
+    success_url = reverse_lazy('listar-biblias')
+    
+class BibliaDeleteView(DeleteView):
+    model = Biblia
+    template_name = 'libreria/eliminar_biblia.html'
+    success_url = reverse_lazy('listar-biblias')

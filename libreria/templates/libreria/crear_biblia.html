@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+{% load static %}
+
+
+{%block content%}
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h2>Crear Biblia</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Biblia</button>
+    </form>
+</div>
+{%endblock%}

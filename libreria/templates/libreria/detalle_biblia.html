@@ -1,0 +1,10 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Detalles de la Biblia</h1>
+<p><strong>Nombre: {{ biblia.nombre }}</strong></p>
+<p><strong>Tapa: {{ biblia.tapa }}</strong></p>
+<p><strong>Versión: {{ biblia.version }}</strong></p>
+<p><strong>Editorial: {{ biblia.editorial }}</strong></p>
+{% endblock %}

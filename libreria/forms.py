@@ -1,5 +1,5 @@
 from django import forms
-from .models import Autor, Genero
+from .models import Autor, Genero, Biblia
 
 class AutorForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -23,3 +23,9 @@ class LibroForm(forms.Form):
     
 class GeneroForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    
+    
+class BibliaForm(forms.ModelForm):
+    class Meta:
+        model = Biblia
+        fields = ['nombre', 'version', 'tapa', 'editorial']
