@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.contrib.auth.decorators import login_required
+
 from .models import Autor, Libro, Genero, Biblia
 from .forms import AutorForm, LibroForm, GeneroForm, BibliaForm
 
@@ -26,6 +28,7 @@ def crear_autor(request):
         form = AutorForm()
         return render(request, 'libreria/crear_autor.html', {'form': form})
 
+@login_required
 def crear_libro(request):
     if request.method == 'POST':
         form = LibroForm(request.POST)
