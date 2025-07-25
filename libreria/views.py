@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Autor, Libro, Genero, Biblia
 from .forms import AutorForm, LibroForm, GeneroForm, BibliaForm
@@ -81,18 +82,18 @@ class BibliaCreateView(CreateView):
     template_name = 'libreria/crear_biblia.html'
     success_url = reverse_lazy('listar-biblias')
     
-class BibliaDetailView(DetailView):
+class BibliaDetailView(LoginRequiredMixin, DetailView):
     model = Biblia
     template_name = 'libreria/detalle_biblia.html'
     context_object_name = 'biblia'
     
-class BibliaUpdateView(UpdateView):
+class BibliaUpdateView(LoginRequiredMixin, UpdateView):
     model = Biblia
     form_class = BibliaForm
     template_name = 'libreria/crear_biblia.html'
     success_url = reverse_lazy('listar-biblias')
     
-class BibliaDeleteView(DeleteView):
+class BibliaDeleteView(LoginRequiredMixin, DeleteView):
     model = Biblia
     template_name = 'libreria/eliminar_biblia.html'
     success_url = reverse_lazy('listar-biblias')

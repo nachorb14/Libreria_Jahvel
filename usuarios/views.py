@@ -13,6 +13,9 @@ from .forms import RegisterForm, AvatarForm, ProfileUpdateForm
 from .models import Avatar
 
 
+def about_me(request):
+    return render(request, 'usuarios/about_me.html')
+
 class UserRegisterView(CreateView):
     model = User
     form_class = RegisterForm
