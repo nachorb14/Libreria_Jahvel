@@ -12,7 +12,7 @@
 {% block content %}
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <h2>Buscar Libros</h2>
-        <form method="GET" action="{% url 'buscar_libros' %}">
+        <form method="GET" action="{% url 'buscar-libros' %}">
             <input type="text" name="titulo" placeholder="Buscar por título" value="{{ titulo }}" style="padding: 10px; width: 300px; margin-bottom: 10px;">
             <button type="submit" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; cursor: pointer;">Buscar</button>
         </form>
